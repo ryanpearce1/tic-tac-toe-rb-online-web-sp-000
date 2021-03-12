@@ -77,8 +77,6 @@ def turn(board)
 end
 
 
-
-
 def won?(board)
   WIN_COMBINATIONS.detect do |combo|
     board[combo[0]] == board[combo[1]] &&
