@@ -22,18 +22,13 @@ def input_to_index(user_input)
   index = user_input.to_i - 1
 end
 
-
-def move(board, index, value)
-  board[index] = value
+def current_player(board)
+  turn_count(board).even? 'X' : 'O'
 end
 
 
-def valid_move?(board, index)
-  if position_taken?(board, index)
-    return false
-  elsif index.between?(0,8) && !position_taken?(board,index)
-    return true
-  end
+def move(board, index, value)
+  board[index] = value
 end
 
 
@@ -45,6 +40,17 @@ def position_taken?(board, index)
   end
 end
 
+def valid_move?(board, index)
+  if position_taken?(board, index)
+    return false
+  elsif index.between?(0,8) && !position_taken?(board,index)
+    return true
+  end
+end
+
+
+
+
 
 def turn_count(board)
   counter = 0
@@ -54,15 +60,6 @@ def turn_count(board)
   end
 end
   return counter
-end
-
-
-def current_player(board)
-  if turn_count(board) % 2 == 0
-    return "X"
-  else
-    return "O"
-  end
 end
 
 
