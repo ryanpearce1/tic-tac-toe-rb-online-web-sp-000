@@ -9,6 +9,7 @@ WIN_COMBINATIONS = [
   [6, 7, 8],
 ]
 
+
 def display_board(board)
   puts " #{board[0]} | #{board[1]} | #{board[2]} "
   puts "-----------"
@@ -21,6 +22,7 @@ end
 def input_to_index(user_input)
   index = user_input.to_i - 1
 end
+
 
 def current_player(board)
   turn_count(board).even? 'X' : 'O'
@@ -40,6 +42,7 @@ def position_taken?(board, index)
   end
 end
 
+
 def valid_move?(board, index)
   if position_taken?(board, index)
     return false
@@ -47,8 +50,6 @@ def valid_move?(board, index)
     return true
   end
 end
-
-
 
 
 
